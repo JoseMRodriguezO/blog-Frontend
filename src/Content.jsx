@@ -27,6 +27,7 @@ export function Content() {
 
   return (
     <div>
+      <div className="container"></div>
       <PostsNew />
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
