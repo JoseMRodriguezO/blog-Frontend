@@ -5,15 +5,17 @@ export function PostsNew() {
 
       <form></form>
       <div>
-        Title: <input type="text" />
+        Title: <input className="form-control" type="text" />
       </div>
       <div>
-        Body: <input type="text" />
+        Body: <input className="form-control" type="text" />
       </div>
       <div>
-        Image: <input type="text" />
+        Image: <input className="form-control" type="text" />
       </div>
-      <button type="submit">Send new post</button>
+      <button className="btn btn-primary mt-2" type="submit">
+        Send new post
+      </button>
     </div>
   );
 }
