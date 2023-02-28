@@ -16,13 +16,13 @@ export function PostsNew() {
 
       <form onSubmit={handleSubmit}>
         <div>
-          Title: <input name="Title" className="form-control" type="text" />
+          Title: <input name="title" className="form-control" type="text" />
         </div>
         <div>
-          Body: <input name="Body" className="form-control" type="text" />
+          Body: <input name="body" className="form-control" type="text" />
         </div>
         <div>
-          Image: <input name="Image" className="form-control" type="text" />
+          Image: <input name="image" className="form-control" type="text" />
         </div>
         <button className="btn btn-primary mt-2" type="submit">
           Send new post
