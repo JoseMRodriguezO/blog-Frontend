@@ -1,4 +1,9 @@
 export function PostsShow(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onUpdatePost(props.post.id, params, () => event.target.reset());
+  };
   return (
     <div>
       <h1>Post information</h1>
@@ -6,7 +11,7 @@ export function PostsShow(props) {
       <p>Boby:{props.post.body}</p>
       <p> Image:{props.post.image}</p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           Title: <input defaultValue={props.post.title} name="title" type="text" />
         </div>
