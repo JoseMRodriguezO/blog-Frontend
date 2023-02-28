@@ -34,6 +34,23 @@ export function Content() {
     setCurrentPost(post);
   };
 
+  const handleUpdatePost = (id, params, successCallback) => {
+    console.log("handleUpdatePost", params);
+    axios.patch(`http://localhost:3000/posts/${id}.json`, params).then((response) => {
+      setPosts(
+        posts.map((post) => {
+          if (post.id === response.data.id) {
+            return response.data;
+          } else {
+            return posts;
+          }
+        })
+      );
+      successCallback();
+      handleHidePost();
+    });
+  };
+
   const handleHidePost = () => {
     setIsPostsShowVisible(false);
   };
@@ -49,7 +66,7 @@ export function Content() {
       <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onShowPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
-        <PostsShow post={currentPost} />
+        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} />
       </Modal>
     </div>
   );
